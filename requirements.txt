@@ -1,0 +1,8 @@
+# Data extraction
+openpyxl==3.1.5
+
+# Snowflake connection
+snowflake-connector-python==4.7.2
+
+# Code linting
+ruff==0.16.2

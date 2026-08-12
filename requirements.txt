@@ -6,3 +6,6 @@ snowflake-connector-python==4.7.2
 
 # Code linting
 ruff==0.16.2
+
+# environment variable loader
+python-dotenv==1.2.2

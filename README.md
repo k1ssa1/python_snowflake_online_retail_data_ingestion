@@ -92,6 +92,7 @@ online_retail_ingestion/
 snowflake-connector-python
 ruff
 openpyxl
+python-dotenv
 ```
 
 ---
@@ -142,6 +143,60 @@ The expected path is:
 data/online_retail.xlsx
 ```
 
+## Snowflake Setup
+
+This project uses [Snowflake](https://www.snowflake.com/) as the data warehouse.
+
+### 1. Create a Snowflake account
+
+Create a Snowflake account. For this project, a **free trial account** is sufficient.
+
+After creating the account, sign in to **Snowsight**.
+
+### 2. Create a virtual warehouse
+
+Create a virtual warehouse that will execute the SQL queries and data loading operations.
+
+For example:
+
+```sql
+CREATE WAREHOUSE online_retail_wh
+WAREHOUSE_SIZE = 'LARGE'
+```
+
+### 3. Create a database
+
+Create a database for the project:
+
+```sql
+CREATE DATABASE online_retail_db;
+```
+
+### 4. Create a schema
+
+Create a schema inside the database:
+
+```sql
+CREATE SCHEMA online_retail_db.retail;
+```
+
+The `retail` schema is used to store the data extracted from the source dataset before any transformations are applied.
+
+### 5. Configure the environment variables
+
+Create a `.env` file in the root directory of the project:
+
+```env
+USER=your_snowflake_username
+PASSWORD=your_snowflake_password
+ACCOUNT=your_account_identifier
+WAREHOUSE=online_retail_wh
+DATABASE=online_retail_db
+SCHEMA=retail
+```
+
+Replace the placeholder values with your Snowflake account credentials and configuration.
+
 ---
 
 ## Running the Application
@@ -158,4 +213,4 @@ Run the application from the project root:
 python main.py
 ```
 
-The application will extract the data from the Excel file and load it into the configured Snowflake environment.
+The application will extract the data from the xlsx file and load it into the configured Snowflake environment.

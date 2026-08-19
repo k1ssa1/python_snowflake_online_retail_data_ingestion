@@ -18,7 +18,7 @@ This Python application is responsible only for:
 
 The transformation layer is handled by dbt, where the data will be transformed into a **star schema**.
 
-Full details about the warehouse design and transformation process will be available in an upcoming article and in the related dbt repository.
+>  [Read the article](https://dev.to/kitchen_code/desining-and-building-an-online-retail-data-warehouse-with-dbt-and-snowflake-5de7) that covers the full implementation.
 
 ---
 
